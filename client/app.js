@@ -1,4 +1,4 @@
-const apiUrl = 'https://apprest-a10047fee772.herokuapp.com//clientes';
+const apiUrl = 'https://apprest-a10047fee772.herokuapp.com/clientes';
 
 // Mostrar el formulario para agregar un nuevo cliente
 function showForm() {
