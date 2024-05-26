@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/clientes';
+const apiUrl = 'https://apprest-a10047fee772.herokuapp.com//clientes';
 
 // Mostrar el formulario para agregar un nuevo cliente
 function showForm() {
