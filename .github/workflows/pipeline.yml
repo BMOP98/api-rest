@@ -25,6 +25,6 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: 'HRKU-cd6eb0d1-fcac-4d8c-84fe-63e7ff699ad1'
-          heroku_app_name: "iniciosesion"
+          heroku_app_name: "apprest"
           heroku_email: "maximo.98@hotmail.com"
-          build_dir: "apprest"
+          build_dir: "server"
