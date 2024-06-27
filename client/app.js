@@ -1,12 +1,14 @@
-const apiUrl = 'https://apprest-a10047fee772.herokuapp.com/clientes';
+const apiUrl = 'http://localhost:5000/clients';
 
-// Mostrar el formulario para agregar un nuevo cliente
+// Show the form to add a new client
 function showForm() {
     const form = document.getElementById('add-item-form');
     form.style.display = 'block';
 }
 
-// Obtener y mostrar los items
+
+
+// Get and show clients
 async function fetchItems() {
     const response = await fetch(apiUrl);
     const items = await response.json();
@@ -24,9 +26,9 @@ async function fetchItems() {
     });
 }
 
-// Agregar un nuevo cliente
+// Add a new client
 async function addItem(event) {
-    event.preventDefault(); // Prevenir el envío del formulario
+    event.preventDefault(); 
     const itemName = document.getElementById('item-name').value;
     const itemLastname = document.getElementById('item-lastname').value;
     const itemEmail = document.getElementById('item-email').value;

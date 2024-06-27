@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Crear un nuevo ítem
+// Crear un nuevo usuario
 router.post('/', async (req, res) => {
   const { Nombre, Apellido, mail } = req.body;
   try {
@@ -23,16 +23,5 @@ router.post('/', async (req, res) => {
   }
 });
 
-
-
-// Actualizar un ítem por ID
-router.put('/:id', (req, res) => {
-  
-});
-
-// Eliminar un ítem por ID
-router.delete('/:id', (req, res) => {
-  
-});
 
 module.exports = router;

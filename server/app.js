@@ -1,39 +1,38 @@
-// src/server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Configurar middlewares
 app.use(bodyParser.json());
 app.use(cors());
 
-// Servir archivos estáticos desde el directorio 'client'
 app.use(express.static(path.join(__dirname, '../client')));
 
-// Conectar a MongoDB
 mongoose.connect('mongodb+srv://maximo98:BMOPpineda1@cluster0.gqrlqzi.mongodb.net/');
 
 mongoose.connection.on('connected', () => {
-  console.log('Conectado a MongoDB');
+  console.log('Connected to MongoDB');
 });
 
 mongoose.connection.on('error', (err) => {
   console.error(`Error de conexión a MongoDB: ${err.message}`);
 });
 
-// Importar las rutas
-app.use('/clientes', require('./routes/clientes'));
+app.use('/clients', require('./routes/clients'));
 
-// Ruta de fallback para servir index.html
+const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
 });
 
 app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto:${port}`);
+  console.log(`Server running on port:${port}`);
 });
