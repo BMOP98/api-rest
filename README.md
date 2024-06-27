@@ -37,5 +37,3 @@ Code: 500 Internal Server Error
 ## Collaborator
 
 - Alejandro Galindo [@Alejandro2914]
-
-Translated with DeepL.com (free version)
